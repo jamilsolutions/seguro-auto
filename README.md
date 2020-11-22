@@ -28,10 +28,11 @@ Requisitos:
    spring.data.mongodb.database:seguro-auto
  
 8. Rodar o comando no projeto <PATH DO PROJETO>/seguro-auto com o comando:
-   ./gradlew jar  
+   ./gradlew bootJar  
    
-9. Rodar o projeto com o comnando
-   java -jar seguro-auto.jar 
+9. Rodar o projeto com o comando
+   cd /build/libs/
+   java -jar seguro-auto-0.0.1-SNAPSHOT.jar
    
 10. Abrir o Postman e importar a coleção Seguro Auto.postman_collection.json:
     Postman -> File -> Import -> Select folder or Upload the file -> Confirm import.
