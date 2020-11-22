@@ -33,10 +33,10 @@ Requisitos:
 9. Rodar o projeto com o comnando
    java -jar seguro-auto.jar 
    
-10. Abrir o Postman e importar a coleç~qao Seguro Auto.postman_collection.json:
+10. Abrir o Postman e importar a coleção Seguro Auto.postman_collection.json:
     Postman -> File -> Import -> Select folder or Upload the file -> Confirm import.
     
-11. Run the collection.
+11. Run the collection Seguro Auto -> Run Collection Runner -> Run Seguro Auto.
 
 12. Pronto!
 
