@@ -61,7 +61,7 @@ public class ApoliceController {
 	public ResponseEntity<String> excluir(@PathVariable Long numeroApolice) throws Exception {
 		this.apoliceService.remover(numeroApolice);
 		 return ResponseEntity.status(HttpStatus.OK)
-			        .body("{ \"message\": \"Apolice "+ numeroApolice +" excluída com sucesso\" }");
+			        .body("{ \"message\": \"Apolice "+ numeroApolice +" excluÃ­da com sucesso\" }");
 	}
  
 	@GetMapping("/listar")
@@ -86,7 +86,7 @@ public class ApoliceController {
 	@ExceptionHandler(HttpMessageNotReadableException.class)
 	public Map<String, String> handleValidationExceptions(HttpMessageNotReadableException ex) {
 		Map<String, String> errors = new HashMap<String, String>();
-		FieldError error = new FieldError("HttpMessageNotReadableException", "Vigência", ex.getMessage());
+		FieldError error = new FieldError("HttpMessageNotReadableException", "VigÃªncia", ex.getMessage());
 		String fieldName = ((FieldError) error).getField();
 		String errorMessage = error.getDefaultMessage();
 		errors.put(fieldName, errorMessage);
@@ -97,7 +97,7 @@ public class ApoliceController {
 	@ExceptionHandler(Exception.class)
 	public Map<String, String> handleValidationExceptions(Exception ex) {
 		Map<String, String> errors = new HashMap<String, String>();
-		FieldError error = new FieldError("Exception", "Exceção", ex.getMessage());
+		FieldError error = new FieldError("Exception", "ExceÃ§Ã£o", ex.getMessage());
 		String fieldName = ((FieldError) error).getField();
 		String errorMessage = error.getDefaultMessage();
 		errors.put(fieldName, errorMessage);

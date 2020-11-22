@@ -25,7 +25,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public Cliente salvar(Cliente cliente) throws Exception {
 		if ( CPFUtil.isValid(cliente.getCpf()) == false) {
-			throw new Exception("O CPF informado n„o È inv·lido.");
+			throw new Exception("O CPF informado n√£o foi inv√°lido.");
 		}
 		boolean existsById = clienteRepository.existsById(cliente.getCpf());
 		if ( existsById ) {
@@ -42,7 +42,7 @@ public class ClienteServiceImpl implements ClienteService {
 			Optional<Apolice> apolice = apoliceRepository.findTopFimVigenciaByCpfOrderByFimVigenciaDesc(cpf);
 			if ( apolice.isPresent() ) {
 				if ( apolice.get().getFimVigencia().after(Calendar.getInstance().getTime())) {
-					return "Erro ao excluir. Cliente possui apÛlice "+apolice.get().getNumeroApolice() + " vigente.";
+					return "Erro ao excluir. Cliente possui ap√≥lice "+apolice.get().getNumeroApolice() + " vigente.";
 				}
 			}
 		}
@@ -50,7 +50,7 @@ public class ClienteServiceImpl implements ClienteService {
 		if ( cliente.isPresent() ) {
 		    clienteRepository.delete(cliente.get());
 		} else {
-			throw new Exception("Cliente n„o encontrado pelo CPF");
+			throw new Exception("Cliente n√£o encontrado pelo CPF");
 		}
 		return null;
 	}

@@ -26,7 +26,7 @@ public class ApoliceServiceImpl implements ApoliceService {
 		if ( apolice != null && apolice.getCpf() != null ) {
 			Optional<Cliente> cliente = clienteRepository.findById(apolice.getCpf());
 			if ( cliente.isPresent() == false) {
-				throw new Exception("Cliente n„o encontrado pelo CPF");
+				throw new Exception("Cliente n√£o encontrado pelo CPF");
 			}
 		}
 		if ( apolice != null && apolice.getNumeroApolice() != null ) {
@@ -46,7 +46,7 @@ public class ApoliceServiceImpl implements ApoliceService {
 		if ( apolice.isPresent() ) {
      		apoliceRepository.delete(apolice.get());
 		} else {
-			throw new Exception("Apolice n„o cadastrada");
+			throw new Exception("Apolice n√£o cadastrada");
 		}
 	}
 

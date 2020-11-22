@@ -55,7 +55,7 @@ public class ClienteController {
 		String message = this.clienteService.remover(cpf);
 		if ( message == null) {
 		return ResponseEntity.status(HttpStatus.OK)
-		        .body("{ \"message\": \"Cliente "+ cpf +" excluído com sucesso\" }");
+		        .body("{ \"message\": \"Cliente "+ cpf +" excluÃ­do com sucesso\" }");
 		} else {
 			return ResponseEntity.status(HttpStatus.OK)
 			        .body("{ \"message\": \"" + message + "\" }");
@@ -84,7 +84,7 @@ public class ClienteController {
 	@ExceptionHandler(Exception.class)
 	public Map<String, String> handleValidationExceptions(Exception ex) {
 		Map<String, String> errors = new HashMap<String, String>();
-		FieldError error = new FieldError("Exception", "Exceção", ex.getMessage());
+		FieldError error = new FieldError("Exception", "ExceÃ§Ã£o", ex.getMessage());
 		String fieldName = ((FieldError) error).getField();
 		String errorMessage = error.getDefaultMessage();
 		errors.put(fieldName, errorMessage);

@@ -1,6 +1,5 @@
 package com.seguro.auto.negocio;
 
-
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -14,11 +13,11 @@ public class Cliente {
 	@Id
 	@Indexed(unique = true)
 	private String cpf;
-	@NotBlank(message = "Nome completo é obrigatório")
+	@NotBlank(message = "Nome completo ï¿½ obrigatï¿½rio")
 	private String nomeCompleto;
-	@NotBlank(message = "Cidade é obrigatório")
+	@NotBlank(message = "Cidade ï¿½ obrigatï¿½rio")
 	private String cidade;
-	@NotBlank(message = "UF é obrigatório")
+	@NotBlank(message = "UF ï¿½ obrigatï¿½rio")
 	private String uf; 
 
 	public String getCpf() {

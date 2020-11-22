@@ -63,16 +63,16 @@ public class ConsultaController {
 			try {
 				dias = DateUtil.calcular(apolice.get().getFimVigencia(), Calendar.getInstance().getTime());
 			} catch (ParseException e) {
-				log.error("Falha ao calcular a data fim de vigÍncia em dias.");
+				log.error("Falha ao calcular a data fim de vig√™ncia em dias.");
 			}	
 		}
-		//Informar quantos dias para vencer, ou h· quantos dias venceu
+		//Informar quantos dias para vencer, ou hÔøΩ quantos dias venceu
 		if ( dias > 0 ) {
 			return ResponseEntity.status(HttpStatus.OK)
 			        .body("{ \"placa\":\"" + apolice.get().getPlacaVeiculo() + "\", \"valor\":\"" + apolice.get().getValorApolice() + "\",  \" \"dias para vencer\" : \"" + dias + "\" }");
 		} else {
 			return ResponseEntity.status(HttpStatus.OK)
-			        .body("{ \"placa\":\"" + apolice.get().getPlacaVeiculo() + "\", \"valor\":\"" + apolice.get().getValorApolice() + "\", \"dias j· vencida\" : \"" + -dias + "\" }");
+			        .body("{ \"placa\":\"" + apolice.get().getPlacaVeiculo() + "\", \"valor\":\"" + apolice.get().getValorApolice() + "\", \"dias j√° vencida\" : \"" + -dias + "\" }");
 		}
 	}
 	

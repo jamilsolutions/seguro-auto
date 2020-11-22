@@ -1,6 +1,5 @@
 package com.seguro.auto.negocio;
 
-
 import java.util.Date;
 
 import javax.validation.constraints.NotNull;
@@ -18,17 +17,17 @@ import lombok.AllArgsConstructor;
 public class Apolice {	
 	@Id 
 	private Long numeroApolice;
-	@NotNull(message = "Início vigência é obrigatório")
+	@NotNull(message = "Inï¿½cio vigï¿½ncia ï¿½ obrigatï¿½rio")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date inicioVigencia;
-	@NotNull(message = "Fim vigência é obrigatório")
+	@NotNull(message = "Fim vigï¿½ncia ï¿½ obrigatï¿½rio")
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date fimVigencia;
-	@NotBlank(message = "Placa do veículo é obrigatório")
+	@NotBlank(message = "Placa do veï¿½culo ï¿½ obrigatï¿½rio")
 	private String placaVeiculo;
-	@NotNull(message = "Valor da apólice é obrigatório")
+	@NotNull(message = "Valor da apï¿½lice ï¿½ obrigatï¿½rio")
 	private Double valorApolice;
-	@NotBlank(message = "CPF do cliente é obrigatório")
+	@NotBlank(message = "CPF do cliente ï¿½ obrigatï¿½rio")
 	private String cpf;
 	
 	public Long getNumeroApolice() {

@@ -9,5 +9,4 @@ public class SeguroAutoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SeguroAutoApplication.class, args);
 	}
-
 }
