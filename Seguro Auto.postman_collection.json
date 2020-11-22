@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "aab8657e-72bc-49a8-a2e3-5dfd96f60e9f",
+		"name": "Seguro Auto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Start - http://localhost:8080/cliente/salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"87486253887\",\r\n    \"nomeCompleto\": \"Sergio Moro Presidente\",\r\n    \"cidade\": \"Curitiba\" ,\r\n    \"uf\": \"PR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cliente/salvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"salvar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/cliente/salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"80982409915\",\r\n    \"nomeCompleto\": \"Mohamed Jammal\",\r\n    \"cidade\": \"Curitiba\" ,\r\n    \"uf\": \"PR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cliente/salvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"salvar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/cliente/ler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"80982409915\",\r\n    \"nomeCompleto\": \"Mohamed Jammal\",\r\n    \"cidade\": \"Curitiba\" ,\r\n    \"uf\": \"PR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cliente/ler/87486253887",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"ler",
+								"87486253887"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/cliente/listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\": \"80982409915\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cliente/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Apolice",
+			"item": [
+				{
+					"name": "Start - http://localhost:8080/apolice/salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroApolice\": 667050490,\r\n    \"inicioVigencia\": \"2019-11-19\",\r\n    \"fimVigencia\": \"2020-11-20\",\r\n    \"placaVeiculo\": \"AKC-9944\",\r\n    \"valorApolice\": 3650.0,\r\n    \"cpf\": \"87486253887\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apolice/salvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apolice",
+								"salvar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/apolice/salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"valorApolice\": \"3650\",\r\n    \"inicioVigencia\": \"2020-11-20\",\r\n    \"fimVigencia\": \"2021-11-20\",\r\n    \"placaVeiculo\": \"AKC-9944\",    \r\n    \"cpf\": \"80982409915\"   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apolice/salvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apolice",
+								"salvar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/apolice/ler",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apolice/ler/667050490",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apolice",
+								"ler",
+								"667050490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/apolice/listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/apolice/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apolice",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Consulta",
+			"item": [
+				{
+					"name": "http://localhost:8080//consulta/apolice/placa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080//consulta/apolice/placa/AKC-9944",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"",
+								"consulta",
+								"apolice",
+								"placa",
+								"AKC-9944"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080//consulta/apolice/vencida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080//consulta/apolice/vencida/667050490",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"",
+								"consulta",
+								"apolice",
+								"vencida",
+								"667050490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080//consulta/apolice/dias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080//consulta/apolice/dias/667050490",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"",
+								"consulta",
+								"apolice",
+								"dias",
+								"667050490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/apolice/excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/apolice/excluir/667050490",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"apolice",
+								"excluir",
+								"667050490"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/cliente/excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cliente/excluir/87486253887",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cliente",
+								"excluir",
+								"87486253887"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
