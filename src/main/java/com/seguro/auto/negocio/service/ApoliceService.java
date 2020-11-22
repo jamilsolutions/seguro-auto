@@ -9,11 +9,11 @@ public interface ApoliceService {
 	
     Apolice salvar(Apolice apolice) throws Exception;
 	
-    void remover(Long numeroApolice);
+    void remover(Long numeroApolice) throws Exception;
 	
     Optional<Apolice> consultar(Long numeroApolice);
 	
     List<Apolice> listar();
 
-	Apolice findByPlacaVeiculo(String placaVeiculo);
+    List<Apolice> findByPlacaVeiculo(String placaVeiculo);
 }

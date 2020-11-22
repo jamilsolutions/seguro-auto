@@ -19,7 +19,7 @@ public class Cliente {
 	@NotBlank(message = "Cidade é obrigatório")
 	private String cidade;
 	@NotBlank(message = "UF é obrigatório")
-	private String uf;
+	private String uf; 
 
 	public String getCpf() {
 		return cpf;

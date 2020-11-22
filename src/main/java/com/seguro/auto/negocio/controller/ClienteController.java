@@ -36,7 +36,7 @@ public class ClienteController {
 	}
 
 	@PostMapping("/salvar")
-	public Cliente criar(@Validated @RequestBody Cliente cliente) {
+	public Cliente criar(@Validated @RequestBody Cliente cliente) throws Exception {
 		cliente = this.clienteService.salvar(cliente);
 		return cliente;
 	}
@@ -51,17 +51,21 @@ public class ClienteController {
 	}
 
 	@DeleteMapping("/excluir/{cpf}")
-	public ResponseEntity<String> remover(@PathVariable String cpf) {
-		this.clienteService.remover(cpf);
-		
+	public ResponseEntity<String> remover(@PathVariable String cpf) throws Exception {
+		String message = this.clienteService.remover(cpf);
+		if ( message == null) {
 		return ResponseEntity.status(HttpStatus.OK)
 		        .body("{ \"message\": \"Cliente "+ cpf +" excluído com sucesso\" }");
+		} else {
+			return ResponseEntity.status(HttpStatus.OK)
+			        .body("{ \"message\": \"" + message + "\" }");
+		}
 	}
 
 	@GetMapping("/listar")
 	public List<Cliente> listar() {
 		List<Cliente> clientes = this.clienteService.listar();
-		return clientes;
+		return clientes; 
 	}
 
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -74,6 +78,17 @@ public class ClienteController {
 			errors.put(fieldName, errorMessage);
 		});
 		return errors;
+	}
+	
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(Exception.class)
+	public Map<String, String> handleValidationExceptions(Exception ex) {
+		Map<String, String> errors = new HashMap<String, String>();
+		FieldError error = new FieldError("Exception", "Exceção", ex.getMessage());
+		String fieldName = ((FieldError) error).getField();
+		String errorMessage = error.getDefaultMessage();
+		errors.put(fieldName, errorMessage);
+	    return errors;
 	}
 
 }

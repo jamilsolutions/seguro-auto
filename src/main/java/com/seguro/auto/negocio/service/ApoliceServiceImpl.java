@@ -41,10 +41,12 @@ public class ApoliceServiceImpl implements ApoliceService {
 	}
 
 	@Override
-	public void remover(Long numeroApolice) {
+	public void remover(Long numeroApolice) throws Exception {
 		Optional<Apolice> apolice = apoliceRepository.findById(numeroApolice);
 		if ( apolice.isPresent() ) {
      		apoliceRepository.delete(apolice.get());
+		} else {
+			throw new Exception("Apolice não cadastrada");
 		}
 	}
 
@@ -61,8 +63,8 @@ public class ApoliceServiceImpl implements ApoliceService {
 	}
 
 	@Override
-	public Apolice findByPlacaVeiculo(String placaVeiculo) {
-		Apolice apolice = apoliceRepository.findByPlacaVeiculo(placaVeiculo);
+	public List<Apolice> findByPlacaVeiculo(String placaVeiculo) {
+		List<Apolice> apolice = apoliceRepository.findByPlacaVeiculo(placaVeiculo);
 		return apolice;
 	}
 

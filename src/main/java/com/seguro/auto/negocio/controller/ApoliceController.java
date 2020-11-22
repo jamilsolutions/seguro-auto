@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -36,7 +35,7 @@ public class ApoliceController {
 	}
 
 	@PostMapping("/salvar")
-	public Apolice salvar(@Validated @RequestBody Apolice apolice) {
+	public Apolice salvar(@Validated @RequestBody Apolice apolice) throws Exception {
 		if ( apolice != null && (apolice.getNumeroApolice() == null || apolice.getNumeroApolice() == 0) ) {
 			long numeroApolice = Math.round(Math.random()*1000000000);
 			apolice.setNumeroApolice(numeroApolice);
@@ -44,8 +43,7 @@ public class ApoliceController {
 		try {
 			apolice = this.apoliceService.salvar(apolice);
 		} catch (Exception e) {
-			apolice.setCpf(apolice.getCpf() + ":Inválido");
-			return apolice;
+			throw e;
 		}
 		return apolice;
 	}
@@ -60,13 +58,12 @@ public class ApoliceController {
 	}
 
 	@DeleteMapping("/excluir/{numeroApolice}")
-	public ResponseEntity<String> excluir(@PathVariable Long numeroApolice) {
+	public ResponseEntity<String> excluir(@PathVariable Long numeroApolice) throws Exception {
 		this.apoliceService.remover(numeroApolice);
-		
 		 return ResponseEntity.status(HttpStatus.OK)
 			        .body("{ \"message\": \"Apolice "+ numeroApolice +" excluída com sucesso\" }");
 	}
-
+ 
 	@GetMapping("/listar")
 	public List<Apolice> listar() {
 		List<Apolice> apolices = this.apoliceService.listar();
@@ -96,4 +93,14 @@ public class ApoliceController {
 	    return errors;
 	}
 
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(Exception.class)
+	public Map<String, String> handleValidationExceptions(Exception ex) {
+		Map<String, String> errors = new HashMap<String, String>();
+		FieldError error = new FieldError("Exception", "Exceção", ex.getMessage());
+		String fieldName = ((FieldError) error).getField();
+		String errorMessage = error.getDefaultMessage();
+		errors.put(fieldName, errorMessage);
+	    return errors;
+	}
 }

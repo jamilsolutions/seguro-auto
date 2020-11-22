@@ -32,6 +32,9 @@ dependencies {
 	
 }
 
+bootJar {
+    mainClass = 'com.seguro.auto.SeguroAutoApplication' 
+}
 
 test {
 	useJUnitPlatform()

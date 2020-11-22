@@ -3,6 +3,7 @@ package com.seguro.auto.negocio.controller;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -23,11 +24,8 @@ import com.seguro.auto.negocio.Apolice;
 import com.seguro.auto.negocio.service.ApoliceService;
 import com.seguro.auto.negocio.util.DateUtil;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
 @RequestMapping("/consulta/apolice")
-@Slf4j
 public class ConsultaController {
 	
    private static final Logger log = LoggerFactory.getLogger(ConsultaController.class);
@@ -39,8 +37,8 @@ public class ConsultaController {
 	}
 	
 	@GetMapping("/placa/{placaVeiculo}")
-    public Apolice consultar(@PathVariable String placaVeiculo) {
-		Apolice apolice = this.apoliceService.findByPlacaVeiculo(placaVeiculo);
+    public List<Apolice> consultar(@PathVariable String placaVeiculo) {
+		List<Apolice> apolice = this.apoliceService.findByPlacaVeiculo(placaVeiculo);
 		return apolice;
 	}
 	
@@ -72,7 +70,6 @@ public class ConsultaController {
 		if ( dias > 0 ) {
 			return ResponseEntity.status(HttpStatus.OK)
 			        .body("{ \"placa\":\"" + apolice.get().getPlacaVeiculo() + "\", \"valor\":\"" + apolice.get().getValorApolice() + "\",  \" \"dias para vencer\" : \"" + dias + "\" }");
-			
 		} else {
 			return ResponseEntity.status(HttpStatus.OK)
 			        .body("{ \"placa\":\"" + apolice.get().getPlacaVeiculo() + "\", \"valor\":\"" + apolice.get().getValorApolice() + "\", \"dias já vencida\" : \"" + -dias + "\" }");

@@ -7,9 +7,9 @@ import com.seguro.auto.negocio.Cliente;
 
 public interface ClienteService {
 	
-    public Cliente salvar( Cliente cliente);
+    public Cliente salvar( Cliente cliente) throws Exception;
 	
-	public void remover(String cpf);
+	public String remover(String cpf)  throws Exception;
 	
     public Optional<Cliente> consultar(String cpf);
 	
