@@ -1,5 +1,5 @@
 # seguro-auto
-Projeto desafio para seguro de veículo da ASAP Log com API REST em Spring Boot (Graddle).
+Projeto desafio para seguro de veículo com API REST em Spring Boot (Graddle).
 
 Requisitos:
 
